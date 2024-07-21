@@ -1,4 +1,6 @@
 " === VIM SETTINGS ===================================="
+" Enable clipboard support
+set clipboard=unnamedplus
 
 set nobackup
 set nowritebackup
@@ -35,6 +37,7 @@ call vundle#begin()
   Plugin 'lambdalisue/fern-git-status.vim'
   Plugin 'lambdalisue/fern-renderer-devicons.vim'
   Plugin 'lambdalisue/nerdfont.vim'
+  Plugin 'wakatime/vim-wakatime' " Wakatime
   
   " All of your plugins must be added before the following line
 call vundle#end()            " required
@@ -63,7 +66,7 @@ nnoremap <leader>h :nohlsearch<ENTER>
 colorscheme sonokai
 
 "--- FZF settings --------------------------------"
-nnoremap <silent> <leader>f :Lines<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers <CR>
 nnoremap <silent> <leader>g :GFiles <CR>
 
