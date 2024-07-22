@@ -10,6 +10,7 @@
     "pyright.inlayHints.parameterNames.enabled": "none",
     "pyright.inlayHints.functionReturnTypes.enabled": false,
     "pyright.inlayHints.parameterTypes.enabled": false
-  }
+  },
+  "svelte.enable-ts-plugin": false
 }
 

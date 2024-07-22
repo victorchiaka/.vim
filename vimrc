@@ -1,13 +1,16 @@
 " === VIM SETTINGS ===================================="
 " Enable clipboard support
-set clipboard=unnamedplus
+set clipboard=unnamed
+
+" Enables mouse
+set mouse=a
 
 set nobackup
 set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
+set updatetime=100
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
@@ -28,15 +31,18 @@ call vundle#begin()
   Plugin 'junegunn/fzf', { 'do': './install --all && ln -s $(pwd) ~/.fzf'}
   Plugin 'junegunn/fzf.vim'
   Plugin 'sainnhe/sonokai' " Colorscheme
+  Plugin 'morhetz/gruvbox' " Colorscheme
+  
   Plugin 'bluz71/vim-mistfly-statusline'
   Plugin 'airblade/vim-gitgutter' " Git modification indicator
   Plugin 'jiangmiao/auto-pairs' " Auto pair
   Plugin 'neoclide/coc.nvim' " Conqueror of completion
-  Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
-  Plugin 'lambdalisue/fern.vim'
-  Plugin 'lambdalisue/fern-git-status.vim'
-  Plugin 'lambdalisue/fern-renderer-devicons.vim'
+  Plugin 'preservim/nerdtree'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plugin 'ryanoasis/vim-devicons'
   Plugin 'lambdalisue/nerdfont.vim'
+  Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
   
   " All of your plugins must be added before the following line
@@ -49,21 +55,44 @@ syntax enable
 filetype plugin indent on
 set hlsearch incsearch ignorecase
 set modifiable
+set cursorline
 set number
+" set relativenumber
 set encoding=UTF-8
+set fileformat=unix
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set nowrap
+set list
+set listchars=eol:.,tab:>-,trail:~,extends:>,precedes:<
+
 
 if $COLORTERM == 'truecolor'
   set termguicolors
 endif
 
-let g:fern_renderer_devicons_disable_warning = 1
+"-- COLOR & THEME CONFIG
+set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=dark
+let g:terminal_ansi_colors = [
+    \ '#282828', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984',
+    \ '#928374', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#ebdbb2',
+\]
 
 let mapleader=","
 nnoremap <leader>e :botright term<CR>
 nnoremap <leader>h :nohlsearch<ENTER>
 
 "--- Change the color scheme ------------------------------------------"
-colorscheme sonokai
+" colorscheme sonokai
 
 "--- FZF settings --------------------------------"
 nnoremap <silent> <leader>f :Files<CR>
@@ -74,16 +103,21 @@ nnoremap <silent> <leader>g :GFiles <CR>
 " Don't show the mode as it is present in statusline; always show the statusline"
 set noshowmode laststatus=2
 
-" --- Fern Settings --- "
-"  Additional configuration for git status and icons
-let g:fern#renderer = "nerdfont"
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFocus<CR>
+let g:NERDTreeGitStatusWithFlags = 1
 
-" let g:fern#default_exclude = '\%(\.DS_Store\|__pycache__\|.pytest_cache\|.ruff_cache\|.git\)'
-" let g:fern#renderer = "devicons"
-let g:fern#default_hidden = 1
-nnoremap <leader>n :Fern . -drawer -toggle<CR>
 
 " Coc Settings
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ 'coc-pyright'
+  \ ]
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
@@ -112,8 +146,11 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" Commenting
+vmap gc <plug>NERDCommenterToggle
+nmap gcc <plug>NERDCommenterToggle
 
-" Formatting selected code
+"" Formatting selected code
 xmap <leader>ff  <Plug>(coc-format-selected)
 nmap <leader>ff  <Plug>(coc-format-selected)
 
@@ -131,3 +168,5 @@ endfunction
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 nmap <leader>ca  <Plug>(coc-codeaction)
+
+nnoremap <leader>rs :CocRestart<CR>
