@@ -1,16 +1,7 @@
 {
   "languageserver": {
-    "pyright": {
-      "disableOrganizeImports": false,
-      "disableLanguageServices": false
-    }
-  },
-  "[python]": {
-    "pyright.inlayHints.variableTypes.enabled": false,
-    "pyright.inlayHints.parameterNames.enabled": "none",
-    "pyright.inlayHints.functionReturnTypes.enabled": false,
-    "pyright.inlayHints.parameterTypes.enabled": false
-  },
-  "svelte.enable-ts-plugin": false
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterNames": false
+  }
 }
-
