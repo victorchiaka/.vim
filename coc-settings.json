@@ -1,7 +1,6 @@
 {
-  "languageserver": {
-    "pyright.inlayHints.functionReturnTypes": false,
-    "pyright.inlayHints.variableTypes": false,
-    "pyright.inlayHints.parameterNames": false
-  }
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "svelte.enable-ts-plugin": false
 }

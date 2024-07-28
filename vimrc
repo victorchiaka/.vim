@@ -1,12 +1,36 @@
 " === VIM SETTINGS ===================================="
 " Enable clipboard support
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Enables mouse
 set mouse=a
 
 set nobackup
 set nowritebackup
+
+syntax enable
+filetype plugin indent on
+set hlsearch incsearch ignorecase
+set number
+" set relativenumber
+set encoding=UTF-8
+set fileformat=unix
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set nowrap
+
+
+if $COLORTERM == 'truecolor'
+  set termguicolors
+endif
+
+
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
@@ -49,38 +73,9 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" === VIM SETTINGS ===================================="
-
-syntax enable
-filetype plugin indent on
-set hlsearch incsearch ignorecase
-set modifiable
-set cursorline
-set number
-" set relativenumber
-set encoding=UTF-8
-set fileformat=unix
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set autoindent
-set smartindent
-set smarttab
-set expandtab
-set nowrap
-set list
-set listchars=eol:.,tab:>-,trail:~,extends:>,precedes:<
-
-
-if $COLORTERM == 'truecolor'
-  set termguicolors
-endif
-
 "-- COLOR & THEME CONFIG
-set termguicolors
 let g:gruvbox_italic=1
-colorscheme gruvbox
+"colorscheme gruvbox
 set background=dark
 let g:terminal_ansi_colors = [
     \ '#282828', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984',
@@ -112,7 +107,6 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
-  \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
@@ -167,6 +161,6 @@ function! ShowDocumentation()
 endfunction
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
-nmap <leader>ca  <Plug>(coc-codeaction)
+nnoremap <leader>c  <Plug>(coc-codeaction)
 
 nnoremap <leader>rs :CocRestart<CR>
