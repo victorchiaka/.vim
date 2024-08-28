@@ -56,6 +56,7 @@ call vundle#begin()
   Plugin 'junegunn/fzf.vim'
   Plugin 'sainnhe/sonokai' " Colorscheme
   Plugin 'morhetz/gruvbox' " Colorscheme
+  Plugin 'tomasiser/vim-code-dark' " For VSCode dark colorscheme
   
   Plugin 'bluz71/vim-mistfly-statusline'
   Plugin 'airblade/vim-gitgutter' " Git modification indicator
@@ -68,6 +69,10 @@ call vundle#begin()
   Plugin 'lambdalisue/nerdfont.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
+
+  Plugin 'posva/vim-vue' " Vue syntax highlight
+  Plugin 'yaegassy/coc-volar'
+  Plugin 'yaegassy/coc-volar-tools'
   
   " All of your plugins must be added before the following line
 call vundle#end()            " required
@@ -76,6 +81,11 @@ filetype plugin indent on    " required
 "-- COLOR & THEME CONFIG
 let g:gruvbox_italic=1
 "colorscheme gruvbox
+
+"set t_Co=256
+"set t_ut=
+colorscheme codedark " Setting the colorscheme
+
 set background=dark
 let g:terminal_ansi_colors = [
     \ '#282828', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984',
@@ -110,7 +120,9 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-pyright'
+  \ 'coc-pyright',
+  \ 'coc-volar',
+  \ 'coc-volar-tools'
   \ ]
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
