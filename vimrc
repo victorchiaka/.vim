@@ -69,10 +69,6 @@ call vundle#begin()
   Plugin 'lambdalisue/nerdfont.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
-
-  Plugin 'posva/vim-vue' " Vue syntax highlight
-  Plugin 'yaegassy/coc-volar'
-  Plugin 'yaegassy/coc-volar-tools'
   
   " All of your plugins must be added before the following line
 call vundle#end()            " required
@@ -121,8 +117,6 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-pyright',
-  \ 'coc-volar',
-  \ 'coc-volar-tools'
   \ ]
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
