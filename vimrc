@@ -9,6 +9,7 @@ set nobackup
 set nowritebackup
 
 syntax enable
+syntax on
 filetype plugin indent on
 set hlsearch incsearch ignorecase
 set number
@@ -75,18 +76,23 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "-- COLOR & THEME CONFIG
-let g:gruvbox_italic=1
+"let g:gruvbox_italic=1
+"let g:gruvbox_contrast_dark = 'hard'
 "colorscheme gruvbox
 
 "set t_Co=256
 "set t_ut=
-colorscheme codedark " Setting the colorscheme
+"colorscheme codedark " Setting the colorscheme
 
 set background=dark
-let g:terminal_ansi_colors = [
-    \ '#282828', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984',
-    \ '#928374', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#ebdbb2',
-\]
+"let g:terminal_ansi_colors = [
+    "\ '#282828', '#cc241d', '#98971a', '#d79921', '#458588', '#b16286', '#689d6a', '#a89984',
+    "\ '#928374', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#ebdbb2',
+"\]
+
+" Install Molokai theme
+Plugin 'tomasr/molokai'
+colorscheme molokai
 
 let mapleader=","
 nnoremap <leader>e :botright term<CR>
@@ -167,6 +173,6 @@ function! ShowDocumentation()
 endfunction
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
-nnoremap <leader>c  <Plug>(coc-codeaction)
+nnoremap <leader>ac  <Plug>(coc-codeaction)
 
 nnoremap <leader>rs :CocRestart<CR>
