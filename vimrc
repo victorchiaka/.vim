@@ -26,16 +26,13 @@ set smarttab
 set expandtab
 set nowrap
 
-
 if $COLORTERM == 'truecolor'
   set termguicolors
 endif
 
-
-
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=100
+set updatetime=90
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
@@ -113,7 +110,7 @@ set noshowmode laststatus=2
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFocus<CR>
 let g:NERDTreeGitStatusWithFlags = 1
-
+let NERDTreeShowHidden=1
 
 " Coc Settings
 let g:coc_global_extensions = [
@@ -128,7 +125,6 @@ let g:coc_global_extensions = [
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " To select options in the list
 inoremap <silent><expr> <C-j>
   \ coc#pum#visible() ? coc#pum#next(1) :
