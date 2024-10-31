@@ -2,5 +2,6 @@
   "pyright.inlayHints.variableTypes": false,
   "pyright.inlayHints.parameterTypes": false,
   "pyright.inlayHints.functionReturnTypes": false,
+  "python.formatting.provider": "black",
   "svelte.enable-ts-plugin": false
 }
