@@ -1,7 +1,4 @@
 " === VIM SETTINGS ===================================="
-" Enable clipboard support
-set clipboard=unnamedplus
-
 " Enables mouse
 set mouse=a
 
@@ -67,8 +64,7 @@ call vundle#begin()
   Plugin 'lambdalisue/nerdfont.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
-  Plugin 'kdheepak/lazygit.nvim', { 'on': 'Lazygit' } " Lazygit plugin
-  
+ 
   " All of your plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
