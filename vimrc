@@ -67,6 +67,7 @@ call vundle#begin()
   Plugin 'lambdalisue/nerdfont.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
+  Plugin 'kdheepak/lazygit.nvim', { 'on': 'Lazygit' } " Lazygit plugin
   
   " All of your plugins must be added before the following line
 call vundle#end()            " required
@@ -172,3 +173,6 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 nnoremap <leader>ac  <Plug>(coc-codeaction)
 
 nnoremap <leader>rs :CocRestart<CR>
+
+" Popup lazygit
+nnoremap <leader>lg :silent !lazygit<CR>
