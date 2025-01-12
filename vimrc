@@ -96,9 +96,28 @@ nnoremap <leader>h :nohlsearch<ENTER>
 " colorscheme sonokai
 
 "--- FZF settings --------------------------------"
+" Function for searching within files using FZF
+function! SearchInFiles(query)
+  "----- Install Ripgrep And Or The_Silver_Searcher -----"
+  if executable('rg')
+    " Use ripgrep if available
+    call fzf#vim#grep(
+          \ 'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git/*" --glob "!node_modules/*" '.shellescape(a:query), 1,
+          \ fzf#vim#with_preview(), 0)
+  elseif executable('ag')
+    " Use The Silver Searcher if ripgrep is not available
+    call fzf#vim#grep(
+          \ 'ag --nocolor --nogroup --column '.shellescape(a:query), 1,
+          \ fzf#vim#with_preview(), 0)
+  else
+    echo "Neither ripgrep (rg) nor The Silver Searcher (ag) is installed."
+  endif
+endfunction
+
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers <CR>
-nnoremap <silent> <leader>g :GFiles <CR>
+nnoremap <silent> <leader>g :call SearchInFiles(input('Search for: '))<CR>
+nnoremap <silent> <leader>gf :GFiles <CR>
 
 "--- Mistfly statusline settings ------------------------------------------"
 " Don't show the mode as it is present in statusline; always show the statusline"
@@ -165,8 +184,8 @@ function! ShowDocumentation()
   endif
 endfunction
 " Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-nnoremap <leader>ac  <Plug>(coc-codeaction)
+nnoremap <silent>K :call ShowDocumentation()<CR>
+nnoremap <leader>c  <Plug>(coc-codeaction)
 
 nnoremap <leader>rs :CocRestart<CR>
 
