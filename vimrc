@@ -54,6 +54,7 @@ call vundle#begin()
   Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
   Plugin 'tomasiser/vim-code-dark', " For VSCode dark colorscheme
   Plugin 'tomasr/molokai'
+  Plugin 'crusoexia/vim-monokai' " Monokai theme
   
   Plugin 'bluz71/vim-mistfly-statusline'
   Plugin 'airblade/vim-gitgutter' " Git modification indicator
@@ -88,7 +89,9 @@ set background=dark
 "let g:gruvbox_italic=1
 "let g:gruvbox_contrast_dark = 'hard'
 " colorscheme gruvbox
- colorscheme catppuccin_mocha
+" colorscheme molokai
+"colorscheme monokai
+colorscheme catppuccin_mocha
 
 let mapleader=","
 nnoremap <leader>e :botright term<CR>
