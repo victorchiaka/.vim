@@ -51,7 +51,9 @@ call vundle#begin()
   Plugin 'junegunn/fzf.vim'
   Plugin 'sainnhe/sonokai' " Colorscheme
   Plugin 'morhetz/gruvbox' " Colorscheme
-  Plugin 'tomasiser/vim-code-dark' " For VSCode dark colorscheme
+  Plugin 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plugin 'tomasiser/vim-code-dark', " For VSCode dark colorscheme
+  Plugin 'tomasr/molokai'
   
   Plugin 'bluz71/vim-mistfly-statusline'
   Plugin 'airblade/vim-gitgutter' " Git modification indicator
@@ -64,19 +66,11 @@ call vundle#begin()
   Plugin 'lambdalisue/nerdfont.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'wakatime/vim-wakatime' " Wakatime
+  Plugin 'sheerun/vim-polyglot'
  
   " All of your plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-"-- COLOR & THEME CONFIG
-"let g:gruvbox_italic=1
-"let g:gruvbox_contrast_dark = 'hard'
-"colorscheme gruvbox
-
-"set t_Co=256
-"set t_ut=
-"colorscheme codedark " Setting the colorscheme
 
 set background=dark
 "let g:terminal_ansi_colors = [
@@ -84,9 +78,17 @@ set background=dark
     "\ '#928374', '#fb4934', '#b8bb26', '#fabd2f', '#83a598', '#d3869b', '#8ec07c', '#ebdbb2',
 "\]
 
+" colorscheme codedark " VSCode dark
+
 " Install Molokai theme
-Plugin 'tomasr/molokai'
-colorscheme molokai
+" colorscheme molokai
+" colorscheme catppuccin_macchiato
+
+"-- COLOR & THEME CONFIG
+"let g:gruvbox_italic=1
+"let g:gruvbox_contrast_dark = 'hard'
+" colorscheme gruvbox
+ colorscheme catppuccin_mocha
 
 let mapleader=","
 nnoremap <leader>e :botright term<CR>
