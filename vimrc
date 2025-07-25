@@ -22,6 +22,7 @@ set smartindent
 set smarttab
 set expandtab
 set nowrap
+set relativenumber
 
 if $COLORTERM == 'truecolor'
   set termguicolors
@@ -196,3 +197,27 @@ nnoremap <leader>rs :CocRestart<CR>
 
 " Popup lazygit
 nnoremap <leader>lg :silent !lazygit<CR>
+
+" Normal mode: Move line up/down
+nnoremap <silent> <A-j> :m .+1<CR>==
+nnoremap <silent> <A-k> :m .-2<CR>==
+
+" Insert mode: Move line up/down (and stay in insert mode)
+inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
+inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
+
+" Visual mode (line-wise): Move selection up/down
+vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+
+" Visual Block mode: Move block up/down
+xnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+xnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+
+" Visual mode: Indent and unindent with Tab and Shift+Tab
+vnoremap <silent> <Tab> >gv
+vnoremap <silent> <S-Tab> <gv
+
+" Visual Block mode: Indent and unindent block
+xnoremap <silent> <Tab> >gv
+xnoremap <silent> <S-Tab> <gv
